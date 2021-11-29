@@ -40,11 +40,13 @@ try:
 
 
     
-    unique_words = dict()
+    abstract_wc = dict()
     LLH_abs = dict()
     pairs_abs = dict()
     for row in relevant_words:
         w_count = dict()
+        pairs_w = dict()
+        LLH_w = dict()
         for item in relevant_words[row]:
 
             if item not in w_count:
@@ -52,11 +54,8 @@ try:
             else:
                 w_count[item] += 1
 
-        unique_words[row] = w_count
+        abstract_wc[row] = w_count
 
-        
-        pairs_w = dict()
-        LLH_w = dict()
         for jk, jv in w_count.items():
             pairs_cooc = dict()
             LLH_cooc = dict()
@@ -68,26 +67,44 @@ try:
         pairs_abs[row] = pairs_w
         LLH_abs[row] = LLH_w
     
-            
+           
 except IOError as error:
     sys.stderr.write("I/O error, reason: " + str(error) + "\n") 
+    sys.exit(1)
       
     
     #4. 
 try:
-    word = input("Enter a word to check its LLH: ").lower()
+
+    word = input("Enter a word to check its data: ").lower()
     while word != "stop":
-        for abstract in LLH_abs:
-            if word not in LLH_w.keys():
+            
+            if word not in LLH_w.keys() or word not in pairs_w.keys():
                 word = input("That word is not an informative one, try again or write stop: ").lower()
                 if word == "stop":
                     sys.exit(1)
+            
+            
+            if word in LLH_w.keys():
+                answer = input("Do you want the coocurrence or the LLH value? ")
+                for abstract in LLH_abs:
+                    if answer not in ["coocurrence", "LLH value"]:
+                        answer = input("Only works with LLH value or coocurrence: ")
+                    elif answer == "LLH value" and LLH_abs[abstract].get(word) is not None:
+                        print(word,"appears in:\n",abstract, "\n", "Its LLH with the words in that abstract is: ", LLH_abs[abstract].get(word))
+                        
+                    elif answer == "coocurrence" and pairs_abs[abstract].get(word) is not None:
+                        print(word,"appears in:\n",abstract, "\n", "Its coocurrence with the words in that abstract is: ", pairs_abs[abstract].get(word))
+
+                    else:
+                        raise KeyError ("Something went wrong")
             else:
-                if LLH_abs[abstract].get(word) is not None:
-                    print(word,"appears in:\n",abstract, "\n", "Its LLH with the words in that abstract is: ", LLH_abs[abstract].get(word))
-                
-        word = input("Enter a new word or write stop. ")
+                print("Can't process that, closing program")
+                sys.exit(1)
+
+            word = input("Enter a new word or write stop. ")
               
 except KeyError as error:
-    sys.stderr.write("Key error, reason: " + str(error) + "\n")    
+    sys.stderr.write("Key error, reason: " + str(error) + "\n")
+    sys.exit(1)    
         
