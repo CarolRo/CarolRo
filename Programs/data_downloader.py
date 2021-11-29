@@ -1,6 +1,7 @@
 import sys
-
+import re
 import requests
+
 if len(sys.argv) == 1:      # No commandline arguments
     IDs_file = input("Write the name of your file with the pumbmed IDs to dowload: ")
 elif len(sys.argv) == 2:    # Something is there
