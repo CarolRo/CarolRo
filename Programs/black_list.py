@@ -88,6 +88,12 @@ outfile.close()
 """
 
 # 3.
+def compare_values(p1, p2):
+    if (p1 < p2):
+        return p1
+    else:
+        return p2
+
 try:
     infile = open("blacklist.dat", "r")
     infile2 = open("shortcleanAbs.dat", "r")
@@ -110,12 +116,7 @@ try:
                 else:
                     pass
         relevant_words[line] = abstract
-        
-    def compare_values(p1, p2):
-        if (p1 < p2):
-            return p1
-        else:
-            return p2
+
 
     # Paring words and counting them
     unique_words = dict()
@@ -158,7 +159,7 @@ try:
                 word = input("That word is not an informative one, try again: ").lower()
             else:
                 if LLH_abs[abstract].get(word) is not None:
-                    print(word,"appears in this abstract:\n",abstract, "\n", "Its LLH with the words in that abstract is: ", LLH_abs[abstract].get(word))
+                    print(word,"appears in:\n",abstract, "\n", "Its LLH with the words in that abstract is: ", LLH_abs[abstract].get(word))
                 
         word = input("Enter a new word or write stop. ")
                         
