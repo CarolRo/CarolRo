@@ -1,13 +1,23 @@
-# 3.
 def compare_values(p1, p2):
     if (p1 < p2):
         return p1
     else:
         return p2
 
+if len(sys.argv) == 3:
+    filename1 = sys.argv[1]
+    filename2 = sys.argv[2]
+elif len(sys.argv) == 1: 
+    filename1 = input("Please enter a blacklist file: ")
+    filename2 = input("Please enter the file with the abstract: ")
+else:
+    sys.stderr.write("Usage: coocurrency.py <filename> <filename>\n")
+    sys.exit(1)
+
+
 try:
-    infile = open("blacklist.dat", "r")
-    infile2 = open("shortcleanAbs.dat", "r")
+    infile = open(filename1, "r")
+    infile2 = open(filename2, "r")
    
 
     blacklist = list()
@@ -29,7 +39,7 @@ try:
         relevant_words[line] = abstract
 
 
-    # Paring words and counting them
+    
     unique_words = dict()
     LLH_abs = dict()
     pairs_abs = dict()
@@ -58,26 +68,26 @@ try:
         pairs_abs[row] = pairs_w
         LLH_abs[row] = LLH_w
     
-    
+            
+except IOError as error:
+    sys.stderr.write("I/O error, reason: " + str(error) + "\n") 
       
     
     #4. 
-
-    word = input("Enter a word: ").lower()
+try:
+    word = input("Enter a word to check its LLH: ").lower()
     while word != "stop":
         for abstract in LLH_abs:
             if word not in LLH_w.keys():
-                word = input("That word is not an informative one, try again: ").lower()
+                word = input("That word is not an informative one, try again or write stop: ").lower()
+                if word == "stop":
+                    sys.exit(1)
             else:
                 if LLH_abs[abstract].get(word) is not None:
                     print(word,"appears in:\n",abstract, "\n", "Its LLH with the words in that abstract is: ", LLH_abs[abstract].get(word))
                 
         word = input("Enter a new word or write stop. ")
-                        
+              
+except KeyError as error:
+    sys.stderr.write("Key error, reason: " + str(error) + "\n")    
         
-        
-            
-            
-            
-except IOError as error:
-    sys.stderr.write("I/O error, reason: " + str(error) + "\n")
