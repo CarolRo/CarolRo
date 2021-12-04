@@ -104,8 +104,7 @@ try:
                     elif answer == "coocurrence" and pairs_abs[abstract].get(word) is not None:
                         print(word,"appears in:\n",abstract, "\n", "Its coocurrence with the words in that abstract is: ", pairs_abs[abstract].get(word))
 
-                    else:
-                        raise KeyError ("Something went wrong")
+                
             else:
                 print("Can't process that, closing program")
                 sys.exit(1)
