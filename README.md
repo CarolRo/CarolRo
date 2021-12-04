@@ -49,6 +49,8 @@ The present program could be run in a local computer with a small number of abst
 
 Local computer: 
 In order to download the paper from the list  run the file_downloader.py
+
+```python
 ./file_downloader.py
 OR
 python3  file_downloader.py
@@ -59,9 +61,13 @@ note: before running this program you should verify that you have the  abstracts
 OR
 python3  black_list.py
 The output of this program is a list with the most abundant words that will be used to remove the other abstracts. 
+```
+
 
 Co-occurrence 
 note: before running this program you should verify that you have the blacklist.dat  and cleanAbs.dat files  (previously created) in the word directory.
+
+```python
 ./co-ocurrence.py
 OR
 python3  co-ocurrence.py
@@ -71,8 +77,8 @@ In order to run the analysis in the cluster previously you need to access your a
 python3  file_downloader.py
 python3  black_list.py
 python3  co-ocurrence.py
-Github
-The programs, the files samples were added to Github in the following link: https://github.com/CarolRo/CarolRo 
+```
+
 
 ## Runtime Analysis: 
 
