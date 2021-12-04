@@ -31,7 +31,7 @@ Create the black list with the most abundant words  in the 10% of the abstract
 Calculate the co-ocurrence of pair words 
 	apply the LLH 
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/CarolRo/CarolRo/tree/main/Figures/Fig3.png "Figure 3- Flowchart of the 3 part program ( file_downloader.py in yellow, black_list.py in green and black_list.py in orange)"
 
 
 
