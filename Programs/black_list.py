@@ -70,7 +70,7 @@ try:
 				if w in wcount:
 					wcount[w] += 1
 
-	print(len(sample_abs))
+	
 	outfile = open("blacklist.dat", "w")
 	for w in wcount:
 	    n = (wcount[w] / sum(wcount.values())) * 100
