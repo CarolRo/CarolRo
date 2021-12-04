@@ -1,13 +1,13 @@
 # Project: "Text mining MEDLINE abstracts"
 
-##Introduction:
+## Introduction:
 The paper production in Science and Technology over time has surged exponentially in fields such as physics, biology, chemistry, Mathematics, Clinical Medicine, Biomedical Research, Engineering, and technology (Fire and Guestrin., 2019) Figure 1. This massive production of Scientific papers is slow to process, read and filter manually for practical uses, but mining is a good strategy to optimize it. Data mining is a process to discover patterns in a large data set and extract data. Current text mining supports abstract screening, comparing phrases, counting words, and extracting key information. In order to filter non informative words, the word count is used to discard the most abundant words in a group of text; those words are very common in certain fields. The words that are not very common can be used to count the co-occurrence of different pair word combinations in the abstracts. This co-occurrence will show how associated the papers are according to those pair-words. The number of pairings grows geometrically while the occurrence of all the pairings is sparse, the pair counting is fundamental due that some combination words are not very common to find. These counts could be summarized in a matrix, this co-occurrence matrix allows to define of a weighted graph and direct graph. For example, using two phrases: 1) With fear and filth and cowardice and shame, 2) Yes and lover, lover, lover, lover, lover, lover, lover come back to me. Using these sentences we can count the pair co-occurrence shown as the weights of the edges considering the links between all the lexical forms (Figure 2).
 
 
 Increasing the sentences or number of words increases the amount of combination for the co-occurrence, those combinations could show association or not. The association could be determined by the log ratio of observed co-occurrence using the log-likelihood (LLH) score for the word par; if the pair LLH value >0 it means the pair is over-represented and therefore associated.
 In the present study, a set of 20,000 abstracts as a result of the search “Metagenomics' ' in NCBI were used. Metagenomics is defined as the study of genomes recovery from environmental samples which contain information of a mixed community of microorganisms. This field has increased as a result of the decreasing price of the sequencing since the first publication in 1996 to 2021 with 24,664 results in PubMed. Here we present data mining based on the frequency of words and co-occurrence of pair words to estimate the overrepresentation of words within an abstract in Metagenomics.
 
-# Theory
+## Theory
 
 Considerations
 1-The abstracts have a different number of words on average between 300-400 words.
@@ -22,7 +22,7 @@ Deliberations
 4- This black list will be used to remove the words from the whole set of abstracts and create a clean abstract with less repetitive words. 
 5-The comparison of the co-occurrence pair words will be within the abstract.
 
-# Algorithm Design
+## Algorithm Design
 Detailed Algorithm
 Using an ID list, download the paper information from PubMED
             	extract only the abstracts information 
@@ -32,7 +32,7 @@ Calculate the co-ocurrence of pair words
 	apply the LLH 
 
 
-# Program Design: 
+## Program Design: 
 To provide better flexibility to the user and the data that will be used, we designed three programs that can be piped, allowing a higher control of input and output for each program (Figure 3).
 The first one consists of a loop that will read the IDs provided in a file and download the corresponding MEDLINE information using the requests library.
 
@@ -43,7 +43,7 @@ So in the end, we will get the two dicts with 2 nested dicts: the most inner dic
 The program also contains user interactions asking for a word and which one of the tables he wishes to consult. The program will then respond with all the data related to that specific word contained in the tables.
 
 
-# Program Manual: 
+## Program Manual: 
 The present program could be run in a local computer with a small number of abstract (~1000 suggested) or run in the computerome cluster with a bigger set of abstract (~20,000). In order to download the pubmed information you should provide a list with the IDs that you are interested in (for more information about how to download the IDs read the following page: https://www.terkko.helsinki.fi/files/15948/PubMed_ID_eng.pdf ). This list  should be in a file and one ID per line as the Figure 4 shows. In order to test the program we provide a small set of IDs (probe_IDs.txt).
 
 
@@ -74,10 +74,10 @@ python3  co-ocurrence.py
 Github
 The programs, the files samples were added to Github in the following link: https://github.com/CarolRo/CarolRo 
 
-# Runtime Analysis: 
+## Runtime Analysis: 
 
 
-| Tables            | Are                                                          |
+| Program           | Big-O                                                           |
 | ------------------|:------------------------------------------------------------:|
 | data_dowloader.py | O(1) + O(1) + O(N) + O(1)                                    | 
 | black_list.py     | O(logn) + O(n) + O(n) + O(n) + O(n^2) + O(n) + O(logn) + O(1)|
