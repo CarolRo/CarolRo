@@ -31,6 +31,9 @@ Create the black list with the most abundant words  in the 10% of the abstract
 Calculate the co-ocurrence of pair words 
 	apply the LLH 
 
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+
 
 ## Program Design: 
 To provide better flexibility to the user and the data that will be used, we designed three programs that can be piped, allowing a higher control of input and output for each program (Figure 3).
