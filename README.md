@@ -10,17 +10,17 @@ In the present study, a set of 20,000 abstracts as a result of the search “Met
 ## Theory
 
 Considerations
-1-The abstracts have a different number of words on average between 300-400 words.
-2-Contain numbers and special characters.
-3-Could find the same word in plural.
-4-The papers even from the same field Metagenomics could carry specialized or unique words 
+1.The abstracts have a different number of words on average between 300-400 words.
+2.Contain numbers and special characters.
+3.Could find the same word in plural.
+4.The papers even from the same field Metagenomics could carry specialized or unique words 
 
 Deliberations
-1-The program will be able to work with abstracts with different number of words 
-2-Will count the words in each abstract 
-3- Due to consideration 4 a random selection of 10% of the abstracts will be used to create a black list that contains the words with the highest number of occurrences in all of them. 
-4- This black list will be used to remove the words from the whole set of abstracts and create a clean abstract with less repetitive words. 
-5-The comparison of the co-occurrence pair words will be within the abstract.
+1.The program will be able to work with abstracts with different number of words 
+2.Will count the words in each abstract 
+3.Due to consideration 4 a random selection of 10% of the abstracts will be used to create a black list that contains the words with the highest number of occurrences in all of them. 
+4.This black list will be used to remove the words from the whole set of abstracts and create a clean abstract with less repetitive words. 
+5.The comparison of the co-occurrence pair words will be within the abstract.
 
 ## Algorithm Design
 Detailed Algorithm
@@ -50,7 +50,7 @@ The present program could be run in a local computer with a small number of abst
 Local computer: 
 In order to download the paper from the list  run the file_downloader.py
 
-```python
+```
 ./file_downloader.py
 OR
 python3  file_downloader.py
@@ -67,7 +67,7 @@ The output of this program is a list with the most abundant words that will be u
 Co-occurrence 
 note: before running this program you should verify that you have the blacklist.dat  and cleanAbs.dat files  (previously created) in the word directory.
 
-```python
+```
 ./co-ocurrence.py
 OR
 python3  co-ocurrence.py
