@@ -82,6 +82,11 @@ python3  black_list.py
 python3  co-ocurrence.py
 ```
 
+## Result 
+The program count the co-ocurrence words in the abstract and calculate the LLH values. After that ask the user for a word of interest to look in the set of abstrat and determine if the input word is observed in the abstracts and also could see the LLH value. The result is observed like this: 
+
+[logo]: https://github.com/CarolRo/CarolRo/tree/main/Figures/result.png "Figure 4- Output of the co-ocurrence word provided by the user"
+
 
 ## Runtime Analysis: 
 
@@ -96,7 +101,7 @@ python3  co-ocurrence.py
 
 
 
-# Conclusion: 
+## Conclusion: 
 The present program is able to find co-occurrence and determine if two pair words within the abstract  are associated. A future improvement will be to determine the pair word association in multiple abstracts and make it interactive where the user could introduce a pair of words and see the co-occurrence value in a set of abstract.  Another limitation of this program is the abbreviation of different words or even the gene names. In a future version it could be removed from the abstracts, probably using a set that contains abbreviations in the field or name of genes. 
 
 
