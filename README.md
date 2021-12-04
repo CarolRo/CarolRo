@@ -31,6 +31,9 @@ Create the black list with the most abundant words  in the 10% of the abstract
 Calculate the co-ocurrence of pair words 
 	apply the LLH 
 
+
+Reference-style: 
+![alt text][logo]
 [logo]: https://github.com/CarolRo/CarolRo/tree/main/Figures/Fig3.png "Figure 3- Flowchart of the 3 part program ( file_downloader.py in yellow, black_list.py in green and black_list.py in orange)"
 
 
@@ -85,6 +88,9 @@ python3  co-ocurrence.py
 ## Result 
 The program count the co-ocurrence words in the abstract and calculate the LLH values. After that ask the user for a word of interest to look in the set of abstrat and determine if the input word is observed in the abstracts and also could see the LLH value. The result is observed like this: 
 
+
+Reference-style: 
+![alt text][logo]
 [logo]: https://github.com/CarolRo/CarolRo/tree/main/Figures/result.png "Figure 4- Output of the co-ocurrence word provided by the user"
 
 
